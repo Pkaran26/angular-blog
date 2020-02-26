@@ -15,7 +15,8 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 const routes: Routes = [
   { path: '', redirectTo: '/blog', pathMatch: 'full' },
   { path: 'blog', component: BloglistComponent },
-  { path: 'blog/:id', component: BlogdetailComponent },
+  { path: 'blog/:id', component: BloglistComponent },
+  { path: 'blog/:id/detail', component: BlogdetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: UserComponent },
