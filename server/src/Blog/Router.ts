@@ -1,21 +1,39 @@
 import { Request, Response } from 'express';
+import { ObjectId } from 'mongodb';
+import Connection from './Utils/Connection';
 
-interface HelloResponse {
-  hello: string;
+export const submitBlog = (req: Request, res: Response)=>{
+
 }
 
-type HelloBuilder = (name: string) => HelloResponse;
+export const getBlogCount = (req: Request, res: Response)=>{
 
-const helloBuilder: HelloBuilder = name => ({ hello: name });
+}
 
-export const rootHandler = (_req: Request, res: Response) => {
-  return res.send('API is working 🤓');
-};
+export const getBlog = (req: Request, res: Response)=>{
 
-export const helloHandler = (req: Request, res: Response) => {
-  const { params } = req;
-  const { name = 'World' } = params;
-  const response = helloBuilder(name);
+}
 
-  return res.json(response);
-};
+export const getBlogDetail = (req: Request, res: Response)=>{
+
+}
+
+export const filterBlog = (req: Request, res: Response)=>{
+
+}
+
+export const getUserBlog = (req: Request, res: Response)=>{
+
+}
+
+export const changeBlogStatus = (req: Request, res: Response)=>{
+
+}
+
+export const updateBlog = (req: Request, res: Response)=>{
+
+}
+
+export const deleteBlog = (req: Request, res: Response)=>{
+
+}
