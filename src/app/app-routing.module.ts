@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 import { BloglistComponent } from './bloglist/bloglist.component';
 import { BlogdetailComponent } from './blogdetail/blogdetail.component';
@@ -19,10 +20,10 @@ const routes: Routes = [
   { path: 'blog/:id/detail', component: BlogdetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', component: UserComponent },
-  { path: 'newblog', component: CreateblogComponent },
-  { path: 'adminlogin', component: AdminloginComponent },
-  { path: 'admindashboard', component: AdminComponent },
+  { path: 'dashboard', component: UserComponent, canActivate: [AuthService] },
+  { path: 'newblog', component: CreateblogComponent, canActivate: [AuthService] },
+  { path: 'adminlogin', component: AdminloginComponent, canActivate: [AuthService] },
+  { path: 'admindashboard', component: AdminComponent, canActivate: [AuthService] },
 ];
 
 @NgModule({

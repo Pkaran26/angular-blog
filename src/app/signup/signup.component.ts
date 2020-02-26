@@ -9,7 +9,7 @@ import Signup from './Signup';
 })
 export class SignupComponent implements OnInit {
   public signup = new Signup('','','');
-  public public confirmPassword: string = "";
+  public confirmPassword: string = "";
   constructor() { }
 
   ngOnInit(): void {
