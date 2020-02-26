@@ -1,0 +1,13 @@
+.mart15{
+  margin-top: 15px;
+}
+.filters{
+  padding: 15px;
+  padding-top: 0;
+}
+.filters > button{
+  margin-right: 5px;
+}
+.blogs{
+  height: 270px;
+}
