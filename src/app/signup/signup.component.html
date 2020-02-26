@@ -6,22 +6,22 @@
         <div class="card-body">
           <h4>User Signup</h4>
           <br/>
-          <form method="post">
+          <form method="post" #signupForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label>Name</label>
-              <input type="text" required name="name" placeholder="Enter your name" class="form-control" />
+              <input type="text" required name="name" [(ngModel)]="signup.name" placeholder="Enter your name" class="form-control" />
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" required name="email" placeholder="Enter your email" class="form-control" />
+              <input type="email" required name="email" [(ngModel)]="signup.email" placeholder="Enter your email" class="form-control" />
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" required name="password" placeholder="Enter your password" class="form-control" />
+              <input type="password" required name="password" [(ngModel)]="signup.password" placeholder="Enter your password" class="form-control" />
             </div>
             <div class="form-group">
               <label>Confirm Password</label>
-              <input type="password" required name="rpassword" placeholder="Confirm your password" class="form-control" />
+              <input type="password" required name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm your password" class="form-control" />
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-primary" value="Signup" />

@@ -14,4 +14,8 @@ export class AdminloginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(){
+
+  }
+
 }
