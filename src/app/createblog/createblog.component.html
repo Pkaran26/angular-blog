@@ -1,1 +1,38 @@
-<p>createblog works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card bg-light">
+        <div class="card-body">
+          <form method="post" #blogForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" name="title" required placeholder="Enter Title" class="form-control" [(ngModel)]="newBlog.title" />
+            </div>
+            <div class="form-group">
+              <label>Body</label>
+              <textarea name="body" class="form-control" required [(ngModel)]="newBlog.body" rows="8" cols="80"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Tags</label>
+              <div class="tags">
+                <button *ngFor="let tag of newBlog.tags" class="btn btn-info btn-sm">{{ tag }}</button>
+              </div>
+              <br/>
+              <div class="form-inline">
+                <input type="search" style="width:85%" list="taglist" name="tag" [(ngModel)]="tag" placeholder="Enter something here..." class="form-control" />
+                <datalist id="taglist">
+                  <option></option>
+                </datalist>
+                <button type="button" (click)="addTag()" class="btn btn-info">Add</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" name="submit" value="Submit" class="btn btn-primary" style="margin-right:5px" />
+              <input type="submit" name="draft" value="Draft" class="btn btn-info" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

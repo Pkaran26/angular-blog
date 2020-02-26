@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import Login from './Login';
 
 @Component({
   selector: 'app-adminlogin',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit {
-
+  public login = new Login('','');
   constructor() { }
 
   ngOnInit(): void {
