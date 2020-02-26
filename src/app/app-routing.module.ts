@@ -11,7 +11,6 @@ import { CreateblogComponent } from './createblog/createblog.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
-import { AdminsignupComponent } from './adminsignup/adminsignup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/blog', pathMatch: 'full' },
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'dashboard', component: UserComponent },
   { path: 'newblog', component: CreateblogComponent },
   { path: 'adminlogin', component: AdminloginComponent },
-  { path: 'adminsignup', component: AdminsignupComponent },
   { path: 'admindashboard', component: AdminComponent },
 ];
 
@@ -40,6 +38,5 @@ export const routingComponents =[
   UserComponent,
   CreateblogComponent,
   AdminComponent,
-  AdminloginComponent,
-  AdminsignupComponent
+  AdminloginComponent
 ]
