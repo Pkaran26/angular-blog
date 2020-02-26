@@ -1,0 +1,19 @@
+.detail{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  height: 40px;
+}
+.detail > p{
+  position: absolute;
+}
+.detail > p:first{
+  left: 0;
+}
+.detail > p:last-child{
+  right: 0;
+}
+.tags > button{
+  margin-right: 5px;
+  padding: 0.15rem 0.2rem;
+}
