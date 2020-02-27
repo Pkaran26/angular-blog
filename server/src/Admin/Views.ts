@@ -24,7 +24,18 @@ export const doLogin = async (req: Request, res: Response)=>{
 }
 
 export const getDashboardCount = async (req: Request, res: Response)=>{
-
+  const connection = await Connection;
+  if(connection){
+    const users = await connection.collection('user').aggregate([ { $count: "_id" } ]).toArray();
+    const blogs = await connection.collection('blog').aggregate([ { $count: "_id" } ]).toArray();
+    if(users, && blogs){
+      res.json(JSONResponse(true, { users, blogs });
+    }else{
+      res.json(JSONResponse(false, { error: 'error' });
+    }
+  }else{
+    res.json(DBError)
+  }
 }
 
 export const getUsers = async (req: Request, res: Response)=>{
@@ -60,11 +71,11 @@ export const getUsersCount = async (req: Request, res: Response)=>{
   }
 }
 
-export const blockUser = async (req: Request, res: Response)=>{
+export const manageUser = async (req: Request, res: Response)=>{
   const connection = await Connection;
   if(connection){
-    const { id } = req.params;
-    connection.collection('user').updateOne({ _id: id }, { is_active: false, is_blocked: true }, (err, messages)=>{
+    const { id, block } = req.params;
+    connection.collection('user').updateOne({ _id: id }, { is_active: block, is_blocked: block }, (err, messages)=>{
       if(err){
         res.json(QueryError)
       }else{

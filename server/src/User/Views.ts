@@ -39,5 +39,22 @@ export const doSignup = async (req: Request, res: Response)=>{
 }
 
 export const getDashboardCount = async (req: Request, res: Response)=>{
-
+  const connection = await Connection;
+  if(connection){
+    const pending = await connection.collection('blog').aggregate([
+      { $match: { _id: id, status: 'pending' } },
+      { $count: "_id" }
+    ]).toArray();
+    const published = await connection.collection('blog').aggregate([
+      { $match: { _id: id, status: 'published'  } },
+      { $count: "_id" }
+    ]).toArray();
+    if(pending, && published){
+      res.json(JSONResponse(true, { pending, published });
+    }else{
+      res.json(JSONResponse(false, { error: 'error' });
+    }
+  }else{
+    res.json(DBError)
+  }
 }
