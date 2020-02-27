@@ -1,4 +1,4 @@
-export const JSONResponse = (status, payload)=>{
+export const JSONResponse = (status: any, payload: any)=>{
   return {
     status,
     payload
