@@ -41,13 +41,11 @@ import { JSONResponse, DBError, QueryError } from "../Utils/Responses";
 export const getUsers = async (req: Request, res: Response)=>{
   const connection = await Connection();
   if(connection){
-    connection.collection('user').find({}, (err: any, users: any)=>{
-      if(err){
-        res.json(QueryError(err))
-      }else{
-        res.json(JSONResponse(true, users));
-      }
-    })
+    const users = await connection.collection('user').find({})
+    .toArray().catch((err: any)=>{
+      res.json(QueryError(err))
+    });
+    res.json(JSONResponse(true, users));
   }else{
     res.json(DBError())
   }

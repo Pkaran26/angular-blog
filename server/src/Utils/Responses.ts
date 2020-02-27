@@ -1,7 +1,7 @@
-export const JSONResponse = (status: any, payload: any)=>{
+export const JSONResponse = (status: any, data: any)=>{
   return {
     status,
-    payload
+    data
   }
 }
 
