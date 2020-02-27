@@ -1,21 +1,12 @@
-import { Request, Response } from 'express';
+import express from 'express';
+import { doLogin, getDashboardCount, getUsers, getUsersCount, manageUser } from './Views';
 
-interface HelloResponse {
-  hello: string;
-}
+const AdminRouter = express.Router();
 
-type HelloBuilder = (name: string) => HelloResponse;
+AdminRouter.post('/login', doLogin);
+AdminRouter.get('/dashboard', getDashboardCount);
+AdminRouter.get('/users', getUsers);
+AdminRouter.get('/userscount', getUsersCount);
+AdminRouter.post('/manageuser', manageUser);
 
-const helloBuilder: HelloBuilder = name => ({ hello: name });
-
-export const rootHandler = (_req: Request, res: Response) => {
-  return res.send('API is working 🤓');
-};
-
-export const helloHandler = (req: Request, res: Response) => {
-  const { params } = req;
-  const { name = 'World' } = params;
-  const response = helloBuilder(name);
-
-  return res.json(response);
-};
+export default AdminRouter;

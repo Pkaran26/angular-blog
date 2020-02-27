@@ -1,11 +1,14 @@
 import express from 'express';
-// import { rootHandler, helloHandler } from './handlers';
+import AdminRouter from './Admin/Router';
+import BlogRouter from './Blog/Router';
+import UserRouter from './User/Router';
 
 const app = express();
 const port = process.env.PORT || '8000';
 
-// app.get('/', rootHandler);
-// app.get('/hello/:name', helloHandler);
+app.use('/admin', AdminRouter);
+app.use('/blog', BlogRouter);
+app.use('/user', UserRouter);
 
 app.listen(port, err => {
   if (err) return console.error(err);

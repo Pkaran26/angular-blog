@@ -45,7 +45,7 @@ export const getBlog = (req: Request, res: Response)=>{
       { $match: { status: 'published' } },
       { $skip: skip }
     ])
-    .toArray(err, blogs)=>{
+    .toArray((err, blogs)=>{
       if(err){
         res.json(QueryError)
       }else{
@@ -124,6 +124,7 @@ export const changeBlogStatus = (req: Request, res: Response)=>{
 export const updateBlog = (req: Request, res: Response)=>{
   const connection = await Connection;
   if(connection){
+    const { id } = req.params;
     connection.collection('blog').updateOne({ _id: id }, { ...req.body }, (err, blog)=>{
       if(err){
         res.json(QueryError)
@@ -139,6 +140,7 @@ export const updateBlog = (req: Request, res: Response)=>{
 export const deleteBlog = (req: Request, res: Response)=>{
   const connection = await Connection;
   if(connection){
+    const { id } = req.params;
     connection.collection('blog').remove({ _id: id }, (err, blog)=>{
       if(err){
         res.json(QueryError)
